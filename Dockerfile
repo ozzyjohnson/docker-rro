@@ -55,4 +55,4 @@ ONBUILD ["/data"]
 WORKDIR /data
 
 # Default command.
-CMD ["bash"]
+ENTRYPOINT ["bash", "R"]
