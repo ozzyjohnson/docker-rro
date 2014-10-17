@@ -33,13 +33,16 @@ RUN \
 # Get RRO.
 RUN \
   wget \
-    http://mran.revolutionanalytics.com/install/RRO-8.0-Beta-Ubuntu-14.04.x86_64.tar.gz && \
-  tar -C /tmp -xzf RRO-8.0-Beta-Ubuntu-14.04.x86_64.tar.gz && \
+    http://mran.revolutionanalytics.com/install/RRO-8.0-Beta-Ubuntu-14.04.x86_64.tar.gz \
+    -P /tmp && \
+  tar -C /tmp -xzf /tmp/RRO-8.0-Beta-Ubuntu-14.04.x86_64.tar.gz && \
   dpkg -i /tmp/RRO-8.0-Beta-Ubuntu-14.04.x86_64.deb && \
   apt-get install \
             --yes \
             -f && \
-  rm /tmp/RRO-8.0-Beta-Ubuntu-14.04.x86_64.deb && \
+  rm /tmp/RRO-8.0-Beta-Ubuntu-14.04.x86_64.deb \
+     /tmp/RRO-8.0-Beta-Ubuntu-14.04.x86_64.tar.gz \
+     /tmp/install.sh && \
 
 # Clean up packages.
   apt-get clean && \
